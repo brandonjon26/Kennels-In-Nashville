@@ -4,10 +4,7 @@ import { AnimalCard } from "./animal/AnimalCard";
 import { CustomerCard } from "./customer/Customer";
 import { EmployeeCard } from "./employee/Employee";
 import { LocationCard } from "./location/Location";
-import "./animal/Animal.css";
-import "./customer/Customer.css";
-import "./employee/Employee.css";
-import "./location/Location.css";
+import { PropsAndState } from "./PropsAndState";
 
 // plug in cards to JSX to display on the DOM
 export const Kennel = () => (
@@ -19,6 +16,8 @@ export const Kennel = () => (
             <div>Visit Us at the Nashville North Location</div>
             <div>500 Puppy Way</div>
         </address>
+
+        <PropsAndState yourName="Brandon" />
 
         <h2>Animals</h2>
         <article className="animals">
