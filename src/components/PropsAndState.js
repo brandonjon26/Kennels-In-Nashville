@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-export const PropsAndState = ({ yourName }) => {
+export const PropsAndState = ({ yourName, pet }) => {
 
     let [countClicks, setCountClicks] = useState(0)
 
@@ -15,6 +15,8 @@ export const PropsAndState = ({ yourName }) => {
     <>
     {console.log("In the return")}
       <h3>Welcome, {yourName} </h3>
+      <h3>My Pet Is: {pet}</h3>
+      
       <p>{countClicks}</p>
       <button onClick={(handleClick)}>Click Me</button>
     </>
