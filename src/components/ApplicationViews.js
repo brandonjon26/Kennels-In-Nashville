@@ -5,6 +5,7 @@ import { LocationCard } from "./location/LocationCard";
 import { AnimalList } from "./animal/AnimalList";
 import { CustomerList } from "./customer/CustomerList";
 import { EmployeeList } from "./employee/EmployeeList";
+import { LocationList } from "./location/LocationList";
 import { AnimalDetail } from "./animal/AnimalDetail";
 
 export const ApplicationViews = () => {
@@ -37,8 +38,7 @@ export const ApplicationViews = () => {
             <Route exact path="/locations">
                 <h2>Locations</h2>
                 <article className="locations">
-                    <LocationCard />
-                    <LocationCard />
+                    <LocationList />
                 </article>
             </Route>
 
