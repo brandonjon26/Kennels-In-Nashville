@@ -1,12 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Home } from "./Home";
-import { LocationCard } from "./location/LocationCard";
 import { AnimalList } from "./animal/AnimalList";
 import { CustomerList } from "./customer/CustomerList";
 import { EmployeeList } from "./employee/EmployeeList";
 import { LocationList } from "./location/LocationList";
 import { AnimalDetail } from "./animal/AnimalDetail";
+import { CustomerDetail } from "./customer/CustomerDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -33,6 +33,10 @@ export const ApplicationViews = () => {
                 <article className="employees">
                     <EmployeeList />
                 </article>
+            </Route>
+
+            <Route exact path="/customers/:customerId(\d+)">
+                <CustomerDetail />
             </Route>
 
             <Route exact path="/locations">
