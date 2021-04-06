@@ -3,17 +3,23 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "locationId": 1,
+      "customerId": 1
     },
     {
       "id": 2,
       "name": "Decker",
-      "breed": "German Shepherd"
+      "breed": "German Shepherd",
+      "locationId": 1,
+      "customerId": 1
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "locationId": 2,
+      "customerId": 1
     }
   ],
   "customers": [
