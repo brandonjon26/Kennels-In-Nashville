@@ -1,11 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Home } from "./Home";
-import { AnimalCard } from "./animal/AnimalCard";
-import { CustomerCard } from "./customer/Customer";
-import { EmployeeCard } from "./employee/Employee";
-import { LocationCard } from "./location/Location";
+import { EmployeeCard } from "./employee/EmployeeCard";
+import { LocationCard } from "./location/LocationCard";
 import { AnimalList } from "./animal/AnimalList";
+import { CustomerList } from "./customer/CustomerList";
 
 export const ApplicationViews = () => {
     return (
@@ -43,10 +42,7 @@ export const ApplicationViews = () => {
             <Route path="/customers">
                 <h2>Customers</h2>
                 <article className="customers">
-                    <CustomerCard />
-                    <CustomerCard />
-                    <CustomerCard />
-                    <CustomerCard />
+                    <CustomerList />
                 </article>
             </Route>
         </>
