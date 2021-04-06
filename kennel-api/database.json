@@ -23,7 +23,18 @@
       "address": "7002 Chestnut Ct"
     }
   ],
-  "employees": [],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Brandon Hill",
+      "address": "123 Franklin Rd."
+    },
+    {
+      "id": 2,
+      "name": "Erin Bradley",
+      "address": "124 Franklin Rd."
+    }
+  ],
   "locations": [
     {
       "id": 1,
