@@ -20,6 +20,13 @@
       "breed": "Pitbull",
       "locationId": 2,
       "customerId": 1
+    },
+    {
+      "name": "Samson",
+      "breed": "Lab",
+      "locationId": 1,
+      "customerId": 2,
+      "id": 4
     }
   ],
   "customers": [
@@ -27,6 +34,11 @@
       "id": 1,
       "name": "Hannah Hall",
       "address": "7002 Chestnut Ct"
+    },
+    {
+      "id": 2,
+      "name": "Derek Hill",
+      "address": "125 Franklin Rd."
     }
   ],
   "employees": [
