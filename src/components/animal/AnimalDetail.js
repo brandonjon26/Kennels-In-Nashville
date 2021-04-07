@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getAnimalById } from '../../modules/AnimalManager';
+import { getAnimalById, deleteAnimal } from '../../modules/AnimalManager';
 import './AnimalDetail.css';
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const AnimalDetail = () => {
     const [animal, setAnimal] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const { animalId } = useParams();
     const history = useHistory();
@@ -21,8 +22,17 @@ export const AnimalDetail = () => {
                     location: animal.location,
                     customer: animal.customer
                 });
+                setIsLoading(false);
             });
     }, [animalId]);
+
+    const handleDelete = () => {
+        //invoke the delete function in AnimalManger and re-direct to the animal list.
+        setIsLoading(true);
+        deleteAnimal(animalId).then(() =>
+          history.push("/animals")
+        );
+      };
 
     return (
         <section className="animal">
@@ -34,6 +44,9 @@ export const AnimalDetail = () => {
             <Link to={`/animals/`}>
                 <button>Back</button>
             </Link>
+            <button type="button" disabled={isLoading} onClick={handleDelete}>
+                Discharge
+            </button>
         </section>
     );
 }
