@@ -9,7 +9,7 @@ export const AnimalCard = ({ animal, handleDeleteAnimal }) => {
         <div className="animals">
           <div className="animal">
             <picture>
-              <img src={require('./dog.svg')} alt="My Dog" />
+              <img src={require('./dog.svg').default} alt="My Dog" />
             </picture>
             <h3>Name: <span className="card-petname">
               {animal.name}
