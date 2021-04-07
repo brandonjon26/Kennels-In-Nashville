@@ -36,8 +36,16 @@ export const ApplicationViews = () => {
                 </article>
             </Route>
 
+
             <Route exact path="/employees/:employeeId(\d+)">
                 <EmployeeDetail />
+            </Route>
+
+            <Route exact path="/customers">
+                <h2>Customers</h2>
+                <article className="customers">
+                    <CustomerList />
+                </article>
             </Route>
 
             <Route exact path="/customers/:customerId(\d+)">
@@ -48,13 +56,6 @@ export const ApplicationViews = () => {
                 <h2>Locations</h2>
                 <article className="locations">
                     <LocationList />
-                </article>
-            </Route>
-
-            <Route exact path="/customers">
-                <h2>Customers</h2>
-                <article className="customers">
-                    <CustomerList />
                 </article>
             </Route>
         </>
