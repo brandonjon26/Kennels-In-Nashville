@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getLocationById } from '../../modules/LocationManager';
+import { getLocationById, deleteLocation } from '../../modules/LocationManager';
 import './LocationDetail.css';
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const LocationDetail = () => {
     const [location, setLocation] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const { locationId } = useParams();
     const history = useHistory();
@@ -19,8 +20,16 @@ export const LocationDetail = () => {
                     name: location.name,
                     address: location.address
                 });
+                setIsLoading(false);
             });
     }, [locationId]);
+
+    const handleDelete = () => {
+        setIsLoading(true);
+        deleteLocation(locationId).then(() =>
+          history.push("/locations")
+        );
+      };
 
     return (
         <section className="location">
@@ -32,6 +41,9 @@ export const LocationDetail = () => {
             <Link to={`/locations/`}>
                 <button>Back</button>
             </Link>
+            <button type="button" disabled={isLoading} onClick={handleDelete}>
+                Discharge
+            </button>
         </section>
     );
 }
