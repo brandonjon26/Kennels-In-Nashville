@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { getLocationById, deleteLocation } from '../../modules/LocationManager';
+import { getEmployeeById } from '../../modules/EmployeeManager';
 import './LocationDetail.css';
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const LocationDetail = () => {
     const [location, setLocation] = useState({});
+    const [employees, setEmployee] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     const { locationId } = useParams();
+    const { employeeId } = useParams();
     const history = useHistory();
 
     useEffect(() => {
@@ -16,10 +19,7 @@ export const LocationDetail = () => {
         console.log("useEffect", locationId)
         getLocationById(locationId)
             .then(location => {
-                setLocation({
-                    name: location.name,
-                    address: location.address
-                });
+                setLocation(location);
                 setIsLoading(false);
             });
     }, [locationId]);
@@ -31,13 +31,24 @@ export const LocationDetail = () => {
         );
       };
 
+      useEffect(() => {
+        console.log("useEffect", employeeId)
+        getEmployeeById(employeeId)
+            .then(employee => {
+                console.log(employee);
+                setEmployee(employee);
+                setIsLoading(false);
+            });
+    }, [employeeId]);
+
     return (
         <section className="location">
             <h3 className="location__name">{location.name}</h3>
-            <div className="location__breed">{location.address}</div>
+            <div className="location__address">{location.address}</div>
             {/* What's up with the question mark???? See below.*/}
-            <div className="location__location">Location: {location.address?.name}</div>
-            <div className="location__owner">Location: {location.location?.name}</div>
+            {console.log(employees)}
+            <div className="location__employee">Employees: {employees.map(
+                employee => location.id === employee.locationId)}</div>
             <Link to={`/locations/`}>
                 <button>Back</button>
             </Link>

@@ -16,10 +16,7 @@ export const EmployeeDetail = () => {
         console.log("useEffect", employeeId)
         getEmployeeById(employeeId)
             .then(employee => {
-                setEmployee({
-                    name: employee.name,
-                    address: employee.address
-                });
+                setEmployee(employee);
                 setIsLoading(false);
             });
     }, [employeeId]);
@@ -34,10 +31,9 @@ export const EmployeeDetail = () => {
     return (
         <section className="employee">
             <h3 className="employee__name">{employee.name}</h3>
-            <div className="employee__breed">{employee.address}</div>
+            <div className="employee__breed">Address: {employee.address}</div>
             {/* What's up with the question mark???? See below.*/}
-            <div className="employee__location">Location: {employee.address?.name}</div>
-            <div className="employee__owner">Employee: {employee.employee?.name}</div>
+            <div className="employee__location">Location: {employee.location?.name}</div>
             <Link to={`/employees/`}>
                 <button>Back</button>
             </Link>
