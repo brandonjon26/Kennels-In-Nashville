@@ -34,13 +34,15 @@
       "id": 1,
       "name": "Hannah Hall",
       "address": "7002 Chestnut Ct",
-      "animalId": 2
+      "animalId": 2,
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Derek Hill",
       "address": "125 Franklin Rd.",
-      "animalId": 4
+      "animalId": 4,
+      "locationId": 1
     }
   ],
   "employees": [

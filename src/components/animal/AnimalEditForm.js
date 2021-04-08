@@ -71,6 +71,8 @@ export const AnimalEditForm = () => {
             <Link to={`/animals/`}>
               <button>Back</button>
             </Link>
+          </div>
+          <div className="alignRight">
             <button
               type="button" disabled={isLoading}
               onClick={updateExistingAnimal}
