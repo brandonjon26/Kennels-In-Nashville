@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { EmployeeCard } from "./EmployeeCard";
 import { getAllEmployees, getEmployeeById, deleteEmployee } from "../../modules/EmployeeManager";
+import { useHistory } from 'react-router';
 
 export const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
+
+    let history = useHistory();
 
     const getEmployees = () => {
         return getAllEmployees().then(employeesFromAPI => {
@@ -13,7 +16,7 @@ export const EmployeeList = () => {
 
     const handleDeleteEmployee = id => {
         deleteEmployee(id)
-        .then(() => getAllEmployees().then(setEmployees));
+            .then(() => getAllEmployees().then(setEmployees));
     };
 
     useEffect(() => {
@@ -22,11 +25,18 @@ export const EmployeeList = () => {
 
     return (
         <div className="container-cards">
-            {employees.map(employee => <EmployeeCard 
-                                        key={employee.id} 
-                                        employee={employee} 
-                                        handleDeleteEmployee={handleDeleteEmployee} 
-                                       />)}
+            <section className="section-content">
+                <button type="button"
+                    className="btn"
+                    onClick={() => { history.push("/employees/create") }}>
+                    Hire Employee
+                </button>
+            </section>
+            {employees.map(employee => <EmployeeCard
+                key={employee.id}
+                employee={employee}
+                handleDeleteEmployee={handleDeleteEmployee}
+            />)}
         </div>
     );
 };

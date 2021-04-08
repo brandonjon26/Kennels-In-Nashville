@@ -40,7 +40,7 @@
       "id": 2,
       "name": "Derek Hill",
       "address": "125 Franklin Rd.",
-      "animalId": 4 
+      "animalId": 4
     }
   ],
   "employees": [
@@ -55,6 +55,13 @@
       "name": "Erin Bradley",
       "address": "124 Franklin Rd.",
       "locationId": 1
+    },
+    {
+      "name": "Maggie Solberg",
+      "breed": "",
+      "locationId": 2,
+      "address": "127 Franklin Rd.",
+      "id": 3
     }
   ],
   "locations": [

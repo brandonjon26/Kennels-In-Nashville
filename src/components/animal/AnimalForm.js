@@ -4,7 +4,7 @@ import { addAnimal } from '../../modules/AnimalManager';
 import './AnimalForm.css';
 import { getAllLocations } from '../../modules/LocationManager';
 import { getAllCustomers } from '../../modules/CustomerManager';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const AnimalForm = () => {
     // State will contain both animal data as well as an isLoading flag.
