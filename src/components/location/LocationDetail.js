@@ -46,7 +46,7 @@ export const LocationDetail = () => {
             <h3 className="location__name">{location.name}</h3>
             <div className="location__address">{location.address}</div>
             {/* What's up with the question mark???? See below.*/}
-            <div className="location__employee">Employees: 
+            <div className="location__employee">Employees:  
                 {/* {employees.filter(
                 employee => location.id === employee.locationId).map(employee => employee.name)} */}
                 

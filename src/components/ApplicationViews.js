@@ -10,6 +10,7 @@ import { CustomerDetail } from "./customer/CustomerDetail";
 import { EmployeeDetail } from "./employee/EmployeeDetail";
 import { LocationDetail } from "./location/LocationDetail";
 import { AnimalForm } from "./animal/AnimalForm";
+import { EmployeeForm } from "./employee/EmployeeForm";
 import { AnimalEditForm } from "./animal/AnimalEditForm"
 
 export const ApplicationViews = () => {
@@ -50,6 +51,10 @@ export const ApplicationViews = () => {
 
             <Route exact path="/employees/:employeeId(\d+)">
                 <EmployeeDetail />
+            </Route>
+
+            <Route exact path="/employees/create">
+                <EmployeeForm />
             </Route>
 
             <Route exact path="/customers">
