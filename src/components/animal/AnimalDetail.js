@@ -41,7 +41,7 @@ export const AnimalDetail = () => {
                 <button>Back</button>
             </Link>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Discharge
+                Delete
             </button>
         </section>
     );

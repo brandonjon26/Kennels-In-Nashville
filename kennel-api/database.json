@@ -27,6 +27,13 @@
       "locationId": 1,
       "customerId": 2,
       "id": 4
+    },
+    {
+      "name": "Niko",
+      "breed": "Cat",
+      "locationId": 1,
+      "customerId": 2,
+      "id": 5
     }
   ],
   "customers": [
@@ -34,6 +41,7 @@
       "id": 1,
       "name": "Hannah Hall",
       "address": "7002 Chestnut Ct",
+      "email": "hh@b.com",
       "animalId": 2,
       "locationId": 1
     },
@@ -43,6 +51,14 @@
       "address": "125 Franklin Rd.",
       "animalId": 4,
       "locationId": 1
+    },
+    {
+      "email": "ag@pup.com",
+      "name": "Abbie Grant",
+      "address": "127 Franklin Rd.",
+      "id": 3,
+      "animalId": 3,
+      "locationId": 2
     }
   ],
   "employees": [

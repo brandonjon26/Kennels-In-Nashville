@@ -1,6 +1,8 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Redirect } from "react-router-dom";
 import { Home } from "./Home";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
 import { AnimalList } from "./animal/AnimalList";
 import { CustomerList } from "./customer/CustomerList";
 import { EmployeeList } from "./employee/EmployeeList";
@@ -14,6 +16,13 @@ import { EmployeeForm } from "./employee/EmployeeForm";
 import { AnimalEditForm } from "./animal/AnimalEditForm"
 
 export const ApplicationViews = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("kennel_customer") !== null)
+
+    const setAuthUser = (user) => {
+        sessionStorage.setItem("kennel_customer", JSON.stringify(user))
+        setIsAuthenticated(sessionStorage.getItem("kennel_customer") !== null)
+    }
+
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
@@ -25,7 +34,7 @@ export const ApplicationViews = () => {
             <Route exact path="/animals">
                 <h2>Animals</h2>
                 <article className="animals">
-                    <AnimalList />
+                    {isAuthenticated ? <AnimalList /> : <Redirect to="/login" />}
                 </article>
             </Route>
 
@@ -39,6 +48,14 @@ export const ApplicationViews = () => {
 
             <Route path="/animals/:animalId(\d+)/edit">
                 <AnimalEditForm />
+            </Route>
+
+            <Route path="/login">
+                <Login setAuthUser={setAuthUser} />
+            </Route>
+
+            <Route path="/register">
+                <Register setAuthUser={setAuthUser} />
             </Route>
 
             <Route exact path="/employees">
