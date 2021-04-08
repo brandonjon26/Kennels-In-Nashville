@@ -4,6 +4,7 @@ import { addAnimal } from '../../modules/AnimalManager';
 import './AnimalForm.css';
 import { getAllLocations } from '../../modules/LocationManager';
 import { getAllCustomers } from '../../modules/CustomerManager';
+import { Link } from 'react-router-dom';
 
 export const AnimalForm = () => {
     // State will contain both animal data as well as an isLoading flag.
@@ -119,6 +120,9 @@ export const AnimalForm = () => {
                     </select>
                 </div>
             </fieldset>
+            <Link to={`/animals/`}>
+                <button>Back</button>
+            </Link>
             <button className="btn btn-primary"
                 onClick={handleClickSaveAnimal}>
                 Save Animal

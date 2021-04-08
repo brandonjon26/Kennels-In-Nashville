@@ -33,24 +33,28 @@
     {
       "id": 1,
       "name": "Hannah Hall",
-      "address": "7002 Chestnut Ct"
+      "address": "7002 Chestnut Ct",
+      "animalId": 2
     },
     {
       "id": 2,
       "name": "Derek Hill",
-      "address": "125 Franklin Rd."
+      "address": "125 Franklin Rd.",
+      "animalId": 4 
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Brandon Hill",
-      "address": "123 Franklin Rd."
+      "address": "123 Franklin Rd.",
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Erin Bradley",
-      "address": "124 Franklin Rd."
+      "address": "124 Franklin Rd.",
+      "locationId": 1
     }
   ],
   "locations": [

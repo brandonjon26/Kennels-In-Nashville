@@ -18,8 +18,8 @@ export const AnimalDetail = () => {
         getAnimalById(animalId)
             .then(animal => {
                 setAnimal(animal);
+                setIsLoading(false);
             });
-        setIsLoading(false);
     }, [animalId]);
 
     const handleDelete = () => {

@@ -15,10 +15,7 @@ export const CustomerDetail = () => {
         console.log("useEffect", customerId)
         getCustomerById(customerId)
             .then(customer => {
-                setCustomer({
-                    name: customer.name,
-                    address: customer.address
-                });
+                setCustomer(customer);
                 setIsLoading(false);
             });
     }, [customerId]);
@@ -33,9 +30,8 @@ export const CustomerDetail = () => {
     return (
         <section className="customer">
             <h3 className="customer__name">{customer.name}</h3>
-            <div className="customer__breed">{customer.address}</div>
-            <div className="customer__location">Location: {customer.address?.name}</div>
-            <div className="customer__owner">Customer: {customer.customer?.name}</div>
+            <div className="customer__address">Address: {customer.address}</div>
+            <div className="customer__animal">Pet: {customer.animal?.name}</div>
             <Link to={`/customers/`}>
                 <button>Back</button>
             </Link>
