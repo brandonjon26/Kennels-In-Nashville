@@ -32,6 +32,7 @@ export const CustomerDetail = () => {
             <h3 className="customer__name">{customer.name}</h3>
             <div className="customer__address">Address: {customer.address}</div>
             <div className="customer__animal">Pet: {customer.animal?.name}</div>
+            <div className="customer__location">Location of Pet: {customer.location?.name}</div>
             <Link to={`/customers/`}>
                 <button>Back</button>
             </Link>
