@@ -2,7 +2,6 @@ import React from "react";
 import "./Location.css";
 import { Link } from "react-router-dom"
 
-// created employee card to represent employees
 export const LocationCard = ({ location, handleDeleteLocation }) => {
   return (
     <div className="card">
@@ -19,7 +18,7 @@ export const LocationCard = ({ location, handleDeleteLocation }) => {
             <Link to={`/locations/${location.id}/edit`}>
               <button type="button">Edit</button>
             </Link>
-            <button type="button" onClick={() => handleDeleteLocation(location.id)}>Discharge</button>
+            <button type="button" onClick={() => handleDeleteLocation(location.id)}>Close This Location</button>
           </div>
         </div>
       </div>

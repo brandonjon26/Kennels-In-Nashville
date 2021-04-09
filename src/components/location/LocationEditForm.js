@@ -20,7 +20,6 @@ export const LocationEditForm = () => {
     evt.preventDefault()
     setIsLoading(true);
 
-    // This is an edit, so we need the id
     const editedLocation = {
       id: locationId,
       name: location.name,
@@ -65,16 +64,6 @@ export const LocationEditForm = () => {
               value={location.address}
             />
             <label htmlFor="address">Address</label>
-
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="employee"
-              value={location.employeeId}
-            />
-            <label htmlFor="employee">Employees</label>
           </div>
           <div className="alignRight">
             <Link to={`/locations/`}>

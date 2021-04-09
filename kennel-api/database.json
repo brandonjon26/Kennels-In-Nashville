@@ -67,7 +67,7 @@
       "id": 1,
       "name": "Brandon Hill",
       "address": "123 Franklin Rd.",
-      "locationId": 1
+      "locationId": "1"
     },
     {
       "id": 2,

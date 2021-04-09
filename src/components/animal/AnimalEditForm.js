@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react"
-import { updateAnimal, getAnimalById } from "../../modules/AnimalManager"
+import React, { useState, useEffect } from "react";
+import { updateAnimal, getAnimalById } from "../../modules/AnimalManager";
+import { getAllLocations } from "../../modules/LocationManager";
+import { getAllCustomers } from "../../modules/CustomerManager";
 import "./AnimalForm.css";
 import { useHistory, useParams, Link } from "react-router-dom";
 
 export const AnimalEditForm = () => {
   const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [locations, setLocations] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const { animalId } = useParams();
+  const { locationId } = useParams();
+  const { customerId } = useParams();
   const history = useHistory();
 
   const handleFieldChange = evt => {
@@ -23,6 +29,8 @@ export const AnimalEditForm = () => {
     // This is an edit, so we need the id
     const editedAnimal = {
       id: animalId,
+      id2: locationId,
+      id3: customerId,
       name: animal.name,
       breed: animal.breed,
       locationId: animal.locationId,
@@ -38,6 +46,22 @@ export const AnimalEditForm = () => {
     getAnimalById(animalId)
       .then(animal => {
         setAnimal(animal);
+        setIsLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    getAllLocations()
+      .then(locationsFromAPI => {
+        setLocations(locationsFromAPI);
+        setIsLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    getAllCustomers()
+      .then(customersFromAPI => {
+        setCustomers(customersFromAPI);
         setIsLoading(false);
       });
   }, []);
@@ -66,6 +90,41 @@ export const AnimalEditForm = () => {
               value={animal.breed}
             />
             <label htmlFor="breed">Breed</label>
+
+            <select 
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="locationId"
+              value={animal.locationId}
+              >
+              {locations.map(l =>
+                <option 
+                key={l.id}
+                value={l.id}>{l.name}
+                </option>
+              )}
+            </select>
+            <label htmlFor="locationId">Select-A-Location</label>
+
+            <select 
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="customerId"
+              value={animal.customerId}
+              >
+              {customers.map(c =>
+                <option 
+                key={c.id}
+                value={c.id}>{c.name}
+                </option>
+              )}
+            </select>
+            <label htmlFor="customerId">Select-A-Customer</label>
+
           </div>
           <div className="alignRight">
             <Link to={`/animals/`}>
