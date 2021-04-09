@@ -14,7 +14,8 @@ import { LocationDetail } from "./location/LocationDetail";
 import { AnimalForm } from "./animal/AnimalForm";
 import { EmployeeForm } from "./employee/EmployeeForm";
 import { LocationForm } from "./location/LocationForm";
-import { AnimalEditForm } from "./animal/AnimalEditForm"
+import { AnimalEditForm } from "./animal/AnimalEditForm";
+import { EmployeeEditForm } from "./employee/EmployeeEditForm";
 
 export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
 
@@ -67,6 +68,10 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
 
             <Route exact path="/employees/create">
                 <EmployeeForm />
+            </Route>
+
+            <Route path="/employees/:employeeId(\d+)/edit">
+                <EmployeeEditForm />
             </Route>
 
             <Route exact path="/customers">
