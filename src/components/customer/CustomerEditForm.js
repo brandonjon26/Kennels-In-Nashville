@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { updateCustomer, getCustomerById } from "../../modules/CustomerManager"
+import React, { useState, useEffect } from "react";
+import { updateCustomer, getCustomerById } from "../../modules/CustomerManager";
 import "./CustomerForm.css";
 import { useHistory, useParams, Link } from "react-router-dom";
 
@@ -26,12 +26,12 @@ export const CustomerEditForm = () => {
       name: customer.name,
       address: customer.address,
       email: customer.email,
-      pet: customer.animalId,
+      animalId: customer.animalId,
       locationId: customer.locationId
     };
 
     updateCustomer(editedCustomer)
-      .then(() => history.push("/a=customers")
+      .then(() => history.push("/customers")
       )
   }
 
@@ -73,7 +73,7 @@ export const CustomerEditForm = () => {
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="address"
+              id="email"
               value={customer.email}
             />
             <label htmlFor="address">Email</label>
