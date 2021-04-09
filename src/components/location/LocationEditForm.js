@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from "react"
-import { updateEmployee, getEmployeeById } from "../../modules/EmployeeManager"
-import "./EmployeeForm.css";
+import React, { useState, useEffect } from "react";
+import { updateLocation, getLocationById } from "../../modules/LocationManager";
+import "./LocationForm.css";
 import { useHistory, useParams, Link } from "react-router-dom";
 
-export const EmployeeEditForm = () => {
-  const [employee, setEmployee] = useState({ name: "", address: "" });
+export const LocationEditForm = () => {
+  const [location, setLocation] = useState({ name: "", address: "", employee: "" });
   const [isLoading, setIsLoading] = useState(false);
 
-  const { employeeId } = useParams();
+  const { locationId } = useParams();
   const history = useHistory();
 
   const handleFieldChange = evt => {
-    const stateToChange = { ...employee };
+    const stateToChange = { ...location };
     stateToChange[evt.target.id] = evt.target.value;
-    setEmployee(stateToChange);
+    setLocation(stateToChange);
   };
 
-  const updateExistingEmployee = evt => {
+  const updateExistingLocation = evt => {
     evt.preventDefault()
     setIsLoading(true);
 
     // This is an edit, so we need the id
-    const editedEmployee = {
-      id: employeeId,
-      name: employee.name,
-      address: employee.address,
-      locationId: employee.locationId,
+    const editedLocation = {
+      id: locationId,
+      name: location.name,
+      address: location.address,
+      locationId: location.employeesId
     };
 
-    updateEmployee(editedEmployee)
-      .then(() => history.push("/employees")
+    updateLocation(editedLocation)
+      .then(() => history.push("/locations")
       )
   }
 
   useEffect(() => {
-    getEmployeeById(employeeId)
-      .then(employee => {
-        setEmployee(employee);
+    getLocationById(locationId)
+      .then(location => {
+        setLocation(location);
         setIsLoading(false);
       });
   }, []);
@@ -52,9 +52,9 @@ export const EmployeeEditForm = () => {
               className="form-control"
               onChange={handleFieldChange}
               id="name"
-              value={employee.name}
+              value={location.name}
             />
-            <label htmlFor="name">Employee name</label>
+            <label htmlFor="name">Location name</label>
 
             <input
               type="text"
@@ -62,19 +62,29 @@ export const EmployeeEditForm = () => {
               className="form-control"
               onChange={handleFieldChange}
               id="address"
-              value={employee.address}
+              value={location.address}
             />
             <label htmlFor="address">Address</label>
+
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="employee"
+              value={location.employeeId}
+            />
+            <label htmlFor="employee">Employees</label>
           </div>
           <div className="alignRight">
-            <Link to={`/employees/`}>
+            <Link to={`/locations/`}>
               <button>Back</button>
             </Link>
           </div>
           <div className="alignRight">
             <button
               type="button" disabled={isLoading}
-              onClick={updateExistingEmployee}
+              onClick={updateExistingLocation}
               className="btn btn-primary"
             >Submit</button>
           </div>

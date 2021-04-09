@@ -81,6 +81,13 @@
       "locationId": 2,
       "address": "127 Franklin Rd.",
       "id": 3
+    },
+    {
+      "name": "\"Stone Cold\" Steve Austin",
+      "breed": "",
+      "locationId": 1,
+      "address": "stonecold@budlight.com",
+      "id": 4
     }
   ],
   "locations": [
