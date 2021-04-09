@@ -2,7 +2,6 @@ import React from "react";
 import "./Employee.css";
 import { Link } from "react-router-dom";
 
-// created employee card to represent employees
 export const EmployeeCard = ({ employee, handleDeleteEmployee }) => {
   return (
     <div className="card">
@@ -19,7 +18,7 @@ export const EmployeeCard = ({ employee, handleDeleteEmployee }) => {
             <Link to={`/employees/${employee.id}/edit`}>
               <button type="button">Edit</button>
             </Link>
-            <button type="button" onClick={() => handleDeleteEmployee(employee.id)}>Discharge</button>
+            <button type="button" onClick={() => handleDeleteEmployee(employee.id)}>Fire Employee</button>
           </div>
         </div>
       </div>

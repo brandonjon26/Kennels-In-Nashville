@@ -2,8 +2,6 @@ import React from "react";
 import "./Customer.css";
 import { Link } from "react-router-dom";
 
-
-// created card representing customers
 export const CustomerCard = ({ customer, handleDeleteCustomer }) => {
     return (
         <div className="card">
@@ -20,7 +18,7 @@ export const CustomerCard = ({ customer, handleDeleteCustomer }) => {
                         <Link to={`/customers/${customer.id}/edit`}>
                             <button type="button">Edit</button>
                         </Link>
-                        <button type="button" onClick={() => handleDeleteCustomer(customer.id)}>Discharge</button>
+                        <button type="button" onClick={() => handleDeleteCustomer(customer.id)}>Ban Customer</button>
                     </div>
                 </div>
             </div>

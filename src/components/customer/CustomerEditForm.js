@@ -20,7 +20,6 @@ export const CustomerEditForm = () => {
     evt.preventDefault()
     setIsLoading(true);
 
-    // This is an edit, so we need the id
     const editedCustomer = {
       id: customerId,
       name: customer.name,

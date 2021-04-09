@@ -12,7 +12,6 @@ export const EmployeeDetail = () => {
     const history = useHistory();
 
     useEffect(() => {
-        //getAnimalById(id) from AnimalManager and hang on to the data; put it into state
         console.log("useEffect", employeeId)
         getEmployeeById(employeeId)
             .then(employee => {
@@ -32,13 +31,12 @@ export const EmployeeDetail = () => {
         <section className="employee">
             <h3 className="employee__name">{employee.name}</h3>
             <div className="employee__breed">Address: {employee.address}</div>
-            {/* What's up with the question mark???? See below.*/}
             <div className="employee__location">Location: {employee.location?.name}</div>
             <Link to={`/employees/`}>
                 <button>Back</button>
             </Link>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Discharge
+                Fire Employee
             </button>
         </section>
     );

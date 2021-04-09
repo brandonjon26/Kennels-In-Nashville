@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 export const LocationDetail = () => {
     const [location, setLocation] = useState({employees: []});
-    // const [employees, setEmployees] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const { locationId } = useParams();
@@ -15,7 +14,6 @@ export const LocationDetail = () => {
     const history = useHistory();
 
     useEffect(() => {
-        //getAnimalById(id) from AnimalManager and hang on to the data; put it into state
         console.log("useEffect", locationId)
         getLocationById(locationId)
             .then(location => {
@@ -45,7 +43,6 @@ export const LocationDetail = () => {
         <section className="location">
             <h3 className="location__name">{location.name}</h3>
             <div className="location__address">{location.address}</div>
-            {/* What's up with the question mark???? See below.*/}
             <div className="location__employee">Employees:  
                 {/* {employees.filter(
                 employee => location.id === employee.locationId).map(employee => employee.name)} */}
@@ -57,7 +54,7 @@ export const LocationDetail = () => {
                 <button>Back</button>
             </Link>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Discharge
+                Close This Location
             </button>
         </section>
     );

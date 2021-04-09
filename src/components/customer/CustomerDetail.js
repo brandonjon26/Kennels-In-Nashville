@@ -37,7 +37,7 @@ export const CustomerDetail = () => {
                 <button>Back</button>
             </Link>
             <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Discharge
+                Ban Customer
             </button>
         </section>
     );
