@@ -93,6 +93,14 @@
       "id": 2,
       "name": "Nashville East",
       "address": "1926 Main Street"
+    },
+    {
+      "name": "Nashville South",
+      "breed": "",
+      "locationId": 0,
+      "customerId": 0,
+      "address": "1934 West Main St.",
+      "id": 3
     }
   ]
 }
