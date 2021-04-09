@@ -37,7 +37,7 @@ export const AnimalList = () => {
           <button type="button"
             className="btn"
             onClick={() => { history.push("/animals/create") }}>
-            Admit Animal
+            Check-in Animal
         </button>
         </section>
         {animals.map(animal => <AnimalCard

@@ -13,6 +13,7 @@ import { EmployeeDetail } from "./employee/EmployeeDetail";
 import { LocationDetail } from "./location/LocationDetail";
 import { AnimalForm } from "./animal/AnimalForm";
 import { EmployeeForm } from "./employee/EmployeeForm";
+import { LocationForm } from "./location/LocationForm";
 import { AnimalEditForm } from "./animal/AnimalEditForm"
 
 export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
@@ -88,6 +89,10 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
 
             <Route exact path="/locations/:locationId(\d+)">
                 <LocationDetail />
+            </Route>
+
+            <Route exact path="/locations/create">
+                <LocationForm />
             </Route>
         </>
     )
